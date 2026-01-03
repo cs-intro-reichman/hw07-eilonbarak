@@ -1,20 +1,21 @@
 public class LocalTester {
     public static final int N_K_OUTPUT_LENGTH = 3;
     public static TestHandler testHandler = new TestHandler();
+
     public static void main(String[] args) {
         StdOut.println("Welcome to the Localized Tester!");
         TesterQuestionEnum questionSelected = null;
-        String input = "";ך
+        String input = "";
         In in = new In();
         TesterQuestionEnum[] questions = TesterQuestionEnum.values();
-       
+
         while (questionSelected == null) {
             StdOut.println("Please enter the question or question number you would like to test:\n");
             for (int i = 0; i < questions.length; i++) {
                 StdOut.println((i + 1) + ". " + questions[i] + " (" + questions[i].getQuestion() + ")");
             }
             StdOut.println((questions.length + 1) + ". Run All Questions");
-            
+
             StdOut.println("");
             input = in.readLine().toLowerCase().replaceAll(" ", "");
             if (input.equals("all") || input.equals("") || input.equals((questions.length + 1) + "")) {
@@ -32,7 +33,6 @@ public class LocalTester {
         testHandler.conclusion();
     }
 
-
     public static TesterQuestionEnum isValidQuestion(String input) {
         TesterQuestionEnum[] questions = TesterQuestionEnum.values();
         TesterQuestionEnum questionSelected = null;
@@ -41,7 +41,8 @@ public class LocalTester {
                 questionSelected = TesterQuestionEnum.valueOf(input);
                 break;
             } catch (Exception e) {
-                if (questions[i].getQuestion().toLowerCase().equals(input.toLowerCase()) || input.equals((i + 1) + "")) {
+                if (questions[i].getQuestion().toLowerCase().equals(input.toLowerCase())
+                        || input.equals((i + 1) + "")) {
                     questionSelected = questions[i];
                     break;
                 }
