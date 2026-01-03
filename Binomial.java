@@ -41,20 +41,21 @@ public class Binomial {
 	}
 
 	private static int binomial(int n, int k, int[][] memo) {
+		if (k > n) {
+			return 0;
+		}
+
+		if (k == 0 || n == 0) {
+			return 1;
+		}
+
 		if (memo[n][k] != -1) {
 			return memo[n][k];
 		}
-		// Base case
-		if ((k > n)) {
-			memo[n][k] = 0;
-			return 0;
-		}
-		// Another base case
-		if (n == 0 || k == 0) {
-			memo[n][k] = 1;
-			return 1;
-		}
-		memo[n][k] = binomial(n - 1, k, memo) + binomial(n - 1, k - 1, memo);
+
+		memo[n][k] = binomial(n - 1, k, memo) +
+				binomial(n - 1, k - 1, memo);
+
 		return memo[n][k];
 	}
 }
