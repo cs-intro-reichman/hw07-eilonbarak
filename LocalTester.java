@@ -4,7 +4,7 @@ public class LocalTester {
     public static void main(String[] args) {
         StdOut.println("Welcome to the Localized Tester!");
         TesterQuestionEnum questionSelected = null;
-        String input = "";
+        String input = "";ך
         In in = new In();
         TesterQuestionEnum[] questions = TesterQuestionEnum.values();
        
